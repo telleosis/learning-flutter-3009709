@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class ChatPage extends StatefulWidget {
-  ChatPage({Key? key}) : super(key: key);
+  const ChatPage({Key? key}) : super(key: key);
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -63,14 +63,14 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: () {
                 context.read<AuthService>().updateUserName("New Name!");
               },
-              icon: Icon(Icons.change_circle)),
+              icon: const Icon(Icons.change_circle)),
           IconButton(
               onPressed: () {
                 context.read<AuthService>().logoutUser();
                 Navigator.pushReplacementNamed(context, '/');
                 print('Icon pressed!');
               },
-              icon: Icon(Icons.logout))
+              icon: const Icon(Icons.logout))
         ],
       ),
       body: Column(

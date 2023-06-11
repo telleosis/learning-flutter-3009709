@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 
 class ThemeTextStyle {
   static TextStyle loginTextFieldStyle =
-      GoogleFonts.lato(textStyle: TextStyle(color: Colors.blueGrey));
+      GoogleFonts.lato(textStyle: const TextStyle(color: Colors.blueGrey));
 }

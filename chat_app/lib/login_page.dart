@@ -1,5 +1,4 @@
 import 'package:chat_app/services/auth_service.dart';
-import 'package:chat_app/utils/brand_color.dart';
 import 'package:chat_app/utils/spaces.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class LoginPage extends StatelessWidget {
 
       await context.read<AuthService>().loginUser(userNameController.text);
       Navigator.pushReplacementNamed(context, '/chat',
-          arguments: '${userNameController.text}');
+          arguments: userNameController.text);
       print('login successful!');
     } else {
       print('not successful!');
@@ -34,7 +33,7 @@ class LoginPage extends StatelessWidget {
   Widget _buildHeader(context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Let\'s sign you in!',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -43,7 +42,7 @@ class LoginPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
               letterSpacing: 0.5),
         ),
-        Text(
+        const Text(
           'Welcome back! \n You\'ve been missed!',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -56,7 +55,7 @@ class LoginPage extends StatelessWidget {
           height: 200,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              image: DecorationImage(
+              image: const DecorationImage(
                   fit: BoxFit.fitWidth,
                   image: AssetImage('assets/illustration.png')),
               borderRadius: BorderRadius.circular(24)),
@@ -78,12 +77,12 @@ class LoginPage extends StatelessWidget {
           },
           child: Column(
             children: [
-              Text('Find us on'),
+              const Text('Find us on'),
               Text(_mainUrl),
             ],
           ),
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SocialMediaButton.twitter(
@@ -131,7 +130,7 @@ class LoginPage extends StatelessWidget {
             onPressed: () async {
               await loginUser(context);
             },
-            child: Text(
+            child: const Text(
               'Login',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
             )),
@@ -152,7 +151,7 @@ class LoginPage extends StatelessWidget {
               // web layout
               return Row(
                 children: [
-                  Spacer(
+                  const Spacer(
                     flex: 1,
                   ),
                   Expanded(
@@ -164,11 +163,11 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 1,
                   ),
                   Expanded(child: _buildForm(context)),
-                  Spacer(
+                  const Spacer(
                     flex: 1,
                   ),
                 ],

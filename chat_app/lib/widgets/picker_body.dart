@@ -15,8 +15,8 @@ class NetworkImagePickerBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(12),
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(24), topRight: Radius.circular(24))),
@@ -47,8 +47,8 @@ class NetworkImagePickerBody extends StatelessWidget {
               );
             }
 
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
+            return const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Center(child: CircularProgressIndicator()),
             );
           }),

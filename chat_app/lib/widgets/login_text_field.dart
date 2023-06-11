@@ -21,12 +21,13 @@ class LoginTextField extends StatelessWidget {
       obscureText: hasAsterisks,
       validator: (value) {
         if (validator != null) return validator!(value);
+        return null;
       },
       controller: controller,
       decoration: InputDecoration(
-          hintText: '$hintText',
+          hintText: hintText,
           hintStyle: ThemeTextStyle.loginTextFieldStyle,
-          border: OutlineInputBorder()),
+          border: const OutlineInputBorder()),
     );
   }
 }

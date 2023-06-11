@@ -9,11 +9,13 @@ void main() async {
   await AuthService.init();
   runApp(ChangeNotifierProvider(
     create: (BuildContext context) => AuthService(),
-    child: ChatApp(),
+    child: const ChatApp(),
   ));
 }
 
 class ChatApp extends StatelessWidget {
+  const ChatApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,21 +23,22 @@ class ChatApp extends StatelessWidget {
       theme: ThemeData(
           canvasColor: Colors.transparent,
           primarySwatch: Colors.deepPurple,
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
               backgroundColor: Colors.blue, foregroundColor: Colors.black)),
       home: FutureBuilder<bool>(
           future: context.read<AuthService>().isLoggedIn(),
           builder: (context, AsyncSnapshot<bool> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasData && snapshot.data!) {
-                return ChatPage();
-              } else
+                return const ChatPage();
+              } else {
                 return LoginPage();
+              }
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }),
 
-      routes: {'/chat': (context) => ChatPage()},
+      routes: {'/chat': (context) => const ChatPage()},
     );
   }
 }

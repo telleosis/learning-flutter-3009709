@@ -4,7 +4,7 @@ class CounterStateful extends StatefulWidget {
   //Widget variables should be final
   final Color buttonColor;
 
-  CounterStateful({Key? key, required this.buttonColor}) : super(key: key);
+  const CounterStateful({Key? key, required this.buttonColor}) : super(key: key);
 
   @override
   State<CounterStateful> createState() => _CounterStatefulState();
@@ -24,11 +24,11 @@ class _CounterStatefulState extends State<CounterStateful> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Counter'),
+          title: const Text('Counter'),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: widget.buttonColor,
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () {
             increment();
           },
@@ -36,7 +36,7 @@ class _CounterStatefulState extends State<CounterStateful> {
         body: Center(
           child: Text(
             '$counter',
-            style: TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 30),
           ),
         ));
   }

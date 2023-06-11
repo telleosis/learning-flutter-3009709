@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class ChatInput extends StatefulWidget {
   final Function(ChatMessageEntity) onSubmit;
 
-  ChatInput({Key? key, required this.onSubmit}) : super(key: key);
+  const ChatInput({Key? key, required this.onSubmit}) : super(key: key);
 
   @override
   State<ChatInput> createState() => _ChatInputState();
@@ -19,7 +19,7 @@ class _ChatInputState extends State<ChatInput> {
   final chatMessageController = TextEditingController();
 
   void onSendButtonPressed() async {
-    String? userNameFromCache = await context.read<AuthService>().getUserName();
+    String? userNameFromCache = context.read<AuthService>().getUserName();
     print('ChatMessage: ${chatMessageController.text}');
     final newChatMessage = ChatMessageEntity(
         text: chatMessageController.text,
@@ -60,7 +60,7 @@ class _ChatInputState extends State<ChatInput> {
                     );
                   });
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.add,
               color: Colors.white,
             ),
@@ -75,8 +75,8 @@ class _ChatInputState extends State<ChatInput> {
                 minLines: 1,
                 controller: chatMessageController,
                 textCapitalization: TextCapitalization.sentences,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                     hintText: "Type your message",
                     hintStyle: TextStyle(color: Colors.blueGrey),
                     border: InputBorder.none),
@@ -90,14 +90,14 @@ class _ChatInputState extends State<ChatInput> {
           )),
           IconButton(
             onPressed: onSendButtonPressed,
-            icon: Icon(
+            icon: const Icon(
               Icons.send,
               color: Colors.white,
             ),
           ),
         ],
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     );
